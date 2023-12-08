@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Notícia</title>
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/noticia.css">
+</head>
+<body>
+    <section class="conteiner">
+        <h2>Formulário de Eventos</h2>
+        <form id="noticiaForm">
+            
+            <img src="images/sample-image.jpg" class="img-responsive" id="imagemExibidaEvento" alt="Image" >
+            <input type="file" id="imagemInputEvento" accept="image/*" onchange="processarImagemEvento()" required>
+            <br>
+            <label for="autor">Título:</label>
+            <input type="text" id="autor" name="autor" required>
+
+            <label for="titulo">Local do Evento:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            
+            <label for="corpo">Descrição do Evento:</label>
+            <textarea id="corpo" name="corpo" rows="4" required></textarea>
+            
+            <label for="datetime">Data:</label>
+            <input type="datetime-local" id="datetime" name="datetime" required>
+            
+            <br><br>
+            <div class="btn">
+                <button type="button" onclick="">Enviar Evento</button>
+            </div>
+        </form>
+    </section>
+
+
+    <section class="conteiner">
+        <h2>Formulário de Notícia</h2>
+        <form id="noticiaForm">
+
+            <img src="images/sample-image.jpg" class="img-responsive" id="imagemExibidaJornal" alt="Image" >
+            <div class="sImage">
+                <input type="file" id="imagemInputJornal" accept="image/*" onchange="processarImagemJornal()" required>
+            </div>
+            
+            <br>
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
+
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            
+            <label for="corpo">Corpo da Notícia:</label>
+            <textarea id="corpo" name="corpo" rows="4" required></textarea>
+            
+            <label for="data">Data:</label>
+            <input type="datetime-local" id="data" name="data" required>
+            <br><br>
+
+            <div class="btn">
+                <button type="button" onclick="">Enviar Notícia</button>
+            </div>        
+        </form>
+    </section>
+
+    
+
+    <script>
+        function processarImagemJornal() {
+            var input = document.getElementById('imagemInputJornal');
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var imagemBase64 = e.target.result;
+                    enviarNoticia(imagemBase64);
+
+                    // Exibir a imagem em um elemento com a classe .img-responsive
+                    var imagemElement = document.getElementById('imagemExibidaJornal');
+                    if (imagemElement) {
+                        imagemElement.src = imagemBase64;
+                        imagemElement.style.display = "block"; // Exibir o elemento
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function processarImagemEvento() {
+            var input = document.getElementById('imagemInputEvento');
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var imagemBase64 = e.target.result;
+                    enviarNoticia(imagemBase64);
+
+                    // Exibir a imagem em um elemento com a classe .img-responsive
+                    var imagemElement = document.getElementById('imagemExibidaEvento');
+                    if (imagemElement) {
+                        imagemElement.src = imagemBase64;
+                        imagemElement.style.display = "block"; // Exibir o elemento
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function enviarNoticia(imagemBase64) {
+            // Coletar dados do formulário
+            var formData = {
+                titulo: document.getElementById('titulo').value,
+                corpo: document.getElementById('corpo').value,
+                data: document.getElementById('data').value,
+                autor: document.getElementById('autor').value,
+                imagem: imagemBase64
+            };
+
+            // Enviar dados para a API
+            fetch('URL_DA_API', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Notícia enviada com sucesso:', data);
+                // Adicionar aqui qualquer manipulação adicional após o envio bem-sucedido
+            })
+            .catch((error) => {
+                console.error('Erro ao enviar notícia:', error);
+                // Adicionar aqui qualquer manipulação de erro
+            });
+        }
+    </script>
+</body>
+</html>
