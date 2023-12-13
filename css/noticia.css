@@ -4,16 +4,28 @@
     box-sizing: border-box;
 }
 
-img{
-    height: 300px;
-    size-adjust: auto;
+
+.bBory{
+    background-color: white;
+    width: 100vw;
+    background-color: antiquewhite;
 }
 
-.conteiner {
+header{
+    background-color: black;
+}
+img{
+    height: 200px;
+    
+}
+
+.Formularios {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 40vw;
+    width: 400px;
+    height: auto;
     margin: 15px auto;
     border: 1px solid black;
     padding: 30px;
@@ -22,7 +34,9 @@ img{
 }
 
 h2{
-    font-size: 2rem;
+    text-align: center;
+    width: 335px;
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 form {
@@ -56,7 +70,7 @@ button {
 
 .sImage{
     width: 400px;
-    background-color: aqua;
+    object-fit: contain;
 }
 
 @media (max-width: 900px) {
@@ -64,3 +78,4 @@ button {
         width: 80vw;
     }
 }
+

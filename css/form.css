@@ -1,11 +1,11 @@
 input[type=text],input[type=email], select, textarea {
     width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
+    padding: 6px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
+
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
   
@@ -22,11 +22,10 @@ input[type=text],input[type=email], select, textarea {
     background-color: #45a049;
   }
   
-  .form {
-    width: 800px;
+  form {
+    width: 335px;
     height: 100%;
     justify-content: center;
-    margin: 40px 25px;
     border-radius: 5px;
   }
 
