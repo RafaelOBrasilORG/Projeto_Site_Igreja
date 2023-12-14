@@ -69,3 +69,11 @@
                 // Adicionar aqui qualquer manipulação de erro
             });
         }
+
+        function excluir(){
+            alert("O item foi excluido com sucesso!")
+        }
+
+        function adicionar(){
+            alert("O Item foi adicionado com sucesso!")
+        }
