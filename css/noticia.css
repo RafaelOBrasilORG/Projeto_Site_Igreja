@@ -85,3 +85,18 @@ button {
 #noticiaForm{
     width: 540px;
 }
+
+.btn_adm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    background-color: green;
+    color: white;
+
+}
+
+a{
+    text-decoration: none;
+}
