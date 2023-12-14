@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    margin-top: 10px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+    background-color: #1b5c36;
+}
+
+h1{
+    color: white;
+    margin: 100px 60px 40px;
+    font-size: 3rem;
+}
+.noticia{
+    cursor: pointer;
+    display: flex;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+    gap: 60px;
+    background-color: beige;
+    height: 60px;
+    border-radius: 15px;
+    padding: 0px 60px;   
+    margin-bottom: 10px; 
+}
+
+.noticia:hover{
+    background-color: greenyellow;
+}
+
+.noticia_list{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
